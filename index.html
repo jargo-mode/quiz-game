@@ -1,0 +1,113 @@
+<style>
+    #container {
+        width: 50%;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    #score-panel {
+        text-align: left;
+        display: flex;
+        justify-content: flex-start;
+        border-bottom: solid 1px #ccc;
+    }
+
+    #score-panel div {
+        margin-right: 10px;
+    }
+
+    #timer-container {
+        margin-left: auto;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    #score-container {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    #high-score-container {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    #timer {
+        color: red;
+    }
+
+    #quiz-panel {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-bottom: solid 1px #ccc;
+    }
+
+    #config-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    #config-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    #config-modal-button-container {
+        margin-top: 10px;
+    }
+</style>
+
+<div id="container">
+    <div id="score-panel">
+        <div id="timer-container">Timer: <span id="timer">0</span></div>
+        <div id="score-container">Score: <span id="score">0</span></div>
+        <div id="high-score-container">High Score: <span id="high-score">0</span></div>
+    </div>
+    <div id="quiz-panel">
+        <span id="start-message">Ready to start the quiz.</span>
+        
+        <div id="question-panel" style="display: none;"></div>
+    </div>
+    <div id="control-panel">
+        <div id="button-container">
+            <button class="start-button" id="start-easy">Start (Easy)</button>
+            <button class="start-button" id="start-medium">Start (Medium)</button>
+            <button class="start-button" id="start-hard">Start (Hard)</button>
+            <button id="configure">Configure</button>
+            <span id="question-count"></span> questions configured.
+        </div>
+        <div id="answer-container" style="display: none;">
+            <input type="text" id="answer" placeholder="Enter your answer here" />
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<div id="config-overlay"></div>
+<div id="config-modal">
+    <h2>Configure Questions</h2>
+    <textarea id="csv-input" rows="10" cols="50" placeholder="Enter CSV data here"></textarea><br>
+    <div id="config-modal-button-container">
+        <button id="save-config">Save</button>
+        <button id="cancel-config">Cancel</button>
+    </div>
+</div>
+
+<script src="./quiz.js" type="text/javascript"></script>
