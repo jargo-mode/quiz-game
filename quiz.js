@@ -1,6 +1,6 @@
-const easyTimeSeconds = 8;
-const mediumTimeSeconds = 6;
-const hardTimeSeconds = 4;
+const easyTimeSeconds = 30;
+const mediumTimeSeconds = 10;
+const hardTimeSeconds = 5;
 
 let data = [];
 for (let i = 1; i <= 12; i++) {
